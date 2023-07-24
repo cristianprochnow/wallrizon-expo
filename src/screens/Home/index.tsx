@@ -2,10 +2,10 @@ import React from 'react';
 import {
   View, 
   Image, 
-  ScrollView,
-  Pressable
+  ScrollView
 } from 'react-native';
-import Feather from '@expo/vector-icons/Feather';
+import IconButton from '../../components/IconButton';
+import { colors } from '../../constants/theme';
 import styles from './styles';
 
 function Home(): JSX.Element {
@@ -17,23 +17,13 @@ function Home(): JSX.Element {
         <Image style={styles.heroImage} source={{ uri }} />
       </View>
       <View style={styles.buttonsToolbar}>
-        <Pressable>
-          <Feather name="arrow-left" size={32} color="#FFF" />
-        </Pressable>
+        <IconButton iconName="arrow-left" iconColor={colors.main100} />
         <View style={styles.buttonsToolbarCenter}>
-          <Pressable>
-            <Feather name="maximize" size={32} color="#FFF" />
-          </Pressable>
-          <Pressable>
-            <Feather name="image" size={32} color="#FFF" />
-          </Pressable>
-          <Pressable>
-            <Feather name="download" size={32} color="#FFF" />
-          </Pressable>
+          <IconButton iconName="maximize" iconColor={colors.main100} />
+          <IconButton iconName="image" iconColor={colors.main100} />
+          <IconButton iconName="download" iconColor={colors.main100} />
         </View>
-        <Pressable>
-          <Feather name="arrow-right" size={32} color="#FFF" />
-        </Pressable>
+        <IconButton iconName="arrow-right" iconColor={colors.main100} />
       </View>
     </ScrollView>
   );
