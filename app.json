@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "wallrizon",
+    "slug": "wallrizon",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
