@@ -9,7 +9,15 @@ interface IconButtonProps extends TouchableOpacityProps {
   iconColor: string
 }
 
-function IconButton({ iconName, iconSize = 40, iconColor }: IconButtonProps): JSX.Element {
+export const defaultValues = {
+  iconSize: 40
+};
+
+function IconButton({ 
+  iconName, 
+  iconSize = defaultValues.iconSize, 
+  iconColor 
+}: IconButtonProps): JSX.Element {
   return (
     <TouchableOpacity style={styles.button}>
       <Feather name={iconName} size={iconSize} color={iconColor} />

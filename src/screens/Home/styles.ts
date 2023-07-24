@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { colors } from '../../constants/theme';
 
 const screenDimensions = Dimensions.get('screen');
 
@@ -8,15 +9,30 @@ const styles = StyleSheet.create({
   },
   hero: {
     width: screenDimensions.width,
-    height: screenDimensions.height * 0.8
+    height: screenDimensions.height * 0.8,
+    position: 'relative'
   },
   heroImage: {
     flex: 1,
     resizeMode: 'cover'
   },
+  heroGradientContainer: {
+    position: 'absolute',
+    bottom: 0,
+    width: screenDimensions.width,
+    height: 120
+  },
+  heroGradient: {
+    flex: 1
+  },
+  content: {
+    width: screenDimensions.width,
+    height: screenDimensions.height * 0.8,
+    marginTop: 16
+  },
   buttonsToolbar: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center'
   },
   buttonsToolbarCenter: {
