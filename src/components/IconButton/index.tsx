@@ -16,10 +16,11 @@ export const defaultValues = {
 function IconButton({ 
   iconName, 
   iconSize = defaultValues.iconSize, 
-  iconColor 
+  iconColor,
+  onPress
 }: IconButtonProps): JSX.Element {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
       <Feather name={iconName} size={iconSize} color={iconColor} />
     </TouchableOpacity>
   );
