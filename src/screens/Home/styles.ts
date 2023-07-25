@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
   },
   content: {
     width: screenDimensions.width,
-    height: screenDimensions.height * 0.8,
     marginTop: 16
   },
   buttonsToolbar: {
@@ -38,6 +37,15 @@ const styles = StyleSheet.create({
   buttonsToolbarCenter: {
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  infoContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 24
+  },
+  infoWrapper: {
+    width: '80%'
   }
 });
 
