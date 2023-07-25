@@ -20,7 +20,7 @@ function Home(): JSX.Element {
   const insets = useSafeAreaInsets();
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.hero}>
         <Image style={styles.heroImage} source={{ uri }} />
         <View style={styles.heroGradientContainer}>

@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     marginTop: 24
   },
   infoWrapper: {
-    width: '80%'
+    width: '88%'
   }
 });
 
