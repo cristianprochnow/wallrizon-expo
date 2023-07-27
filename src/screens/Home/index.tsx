@@ -52,7 +52,7 @@ function Home(): JSX.Element {
                 onPress={onOpenModal} 
                 iconName="maximize" 
                 iconColor={colors.main100} />
-              <IconButton iconName="image" iconColor={colors.main100} />
+              {/* <IconButton iconName="image" iconColor={colors.main100} /> */}
               <IconButton iconName="download" iconColor={colors.main100} />
             </View>
             <View>
