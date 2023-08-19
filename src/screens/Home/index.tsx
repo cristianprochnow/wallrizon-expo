@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import {
-  View, 
-  Image, 
-  ScrollView,
-  Alert
+  View,
+  Image,
+  ScrollView
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import RNFetchBlob from 'rn-fetch-blob';
 import { LinearGradient } from 'expo-linear-gradient';
 import IconButton, {
-  defaultValues as defaultsIconButton 
+  defaultValues as defaultsIconButton
 } from '../../components/IconButton';
 import { colors } from '../../constants/theme';
 import styles from './styles';
@@ -30,10 +30,32 @@ function Home(): JSX.Element {
     setModalVisible(false);
   }
 
+  function onSaveToGallery() {
+    const imageName = (new Date()).getTime();
+    const blobDirs = RNFetchBlob.fs.dirs;
+    const picturePath = blobDirs.PictureDir + '/' + imageName + '.png';
+
+    RNFetchBlob.config({
+      fileCache: true,
+      appendExt: 'png',
+      indicator: true,
+      IOSBackgroundTask: true,
+      path: picturePath,
+      addAndroidDownloads: {
+        useDownloadManager: true,
+        notification: true,
+        path: picturePath,
+        description: 'Image'
+      }
+    }).fetch('GET', uri).then(res => {
+      console.log(res.info());
+    });
+  }
+
   return (
     <>
       <ExpandedView
-        isVisible={isModalVisible} 
+        isVisible={isModalVisible}
         onClose={onCloseModal} />
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <View style={styles.hero}>
@@ -48,12 +70,15 @@ function Home(): JSX.Element {
               <IconButton iconName="arrow-left" iconColor={colors.main100} iconSize={iconSizeArrowButton} />
             </View>
             <View style={styles.buttonsToolbarCenter}>
-              <IconButton 
-                onPress={onOpenModal} 
-                iconName="maximize" 
+              <IconButton
+                onPress={onOpenModal}
+                iconName="maximize"
                 iconColor={colors.main100} />
-              {/* <IconButton iconName="image" iconColor={colors.main100} /> */}
-              <IconButton iconName="download" iconColor={colors.main100} />
+              <IconButton
+                onPress={onSaveToGallery}
+                iconName="download"
+                iconColor={colors.main100}
+              />
             </View>
             <View>
               <IconButton iconName="arrow-right" iconColor={colors.main100} iconSize={iconSizeArrowButton} />
